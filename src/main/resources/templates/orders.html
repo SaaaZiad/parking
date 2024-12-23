@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/default_styles.css" rel="stylesheet">
+    <link href="/static/css/orders.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="/header :: header"> </div>
+<h1>Мои бронирования</h1>
+<div class="orders">
+    <div th:each="order: ${orders}" class="order">
+        <div class="orderInfo">
+            <p th:text="'Номер парковочного места: '+${order.getPspot().getDescription()}"></p>
+            <p th:text="'Осталось минут: '+${order.getAmount()}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

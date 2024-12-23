@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Доступные товары</title>
+  <link href="/static/css/default_styles.css" rel="stylesheet">
+  <link href="/static/css/tickets.css" rel="stylesheet">
+</head>
+<body>
+  <div th:replace="/header :: header"></div>
+  <h1>Доступные парковочные места</h1>
+  <div class="tickets_list">
+    <div th:each="PSpot: ${pspots}" class="ticket">
+      <div class="ticket_info">
+        <p th:text="'Номер парковочного места:'+${PSpot.getDescription()}" class="ticket_description"></p>
+        <p th:text="'Цена:'+${PSpot.getPrice()}" class="ticket_price"></p>
+        <div class="ticket_buy_redirect">
+          <a th:href="@{/tickets/buy_tickets/{id}(id=${PSpot.getPspotId()})}"
+             class="ticket_buy">Купить</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

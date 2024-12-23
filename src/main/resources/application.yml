@@ -1,0 +1,29 @@
+spring:
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    hikari:
+      username: root
+      password: root
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    static-path-pattern: /static/**
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.hibernate.format_sql: true
+      hibernate.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
